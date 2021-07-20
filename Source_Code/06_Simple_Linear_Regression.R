@@ -34,13 +34,13 @@ anova(age_vs_lungcap_model)
 ### Checking linear model assumptions
 
 # ASSUMPTIONS
-# 1. Y-values (or errors) are indpeendent
-# 2. Y values canbe expressed as a linear function of the X variable
+# 1. Y-values (or errors) are independent
+# 2. Y values can be expressed as a linear function of the X variable
 # 3. Variation of observations around the regression line (the residual SE) is constant (homoscedasdicity)
-# 4. For a giuven value of X, Y values (or error) are normally distributed
-# NOTE: 2,3,4 can all be verfied by examning thelinear model's residuals
+# 4. For a given value of X, Y values (or error) are normally distributed
+# NOTE: 2,3,4 can all be verified by examining the linear model's residuals
 
-# Plot the diagnositc plots
+# Plot the diagnostic plots
 par(mfrow = c(2,2))
 plot(age_vs_lungcap_model)
 # Plot 1: X-values vs residuals
