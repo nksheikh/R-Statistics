@@ -74,7 +74,32 @@ catheight_vs_lungcap_model = lm(LungCapData$LungCap ~ cat_height)
 # In a linear regression model, the intercept refers to the estimated mean 
 #   Y-value for the reference (baseline) group, and the model coefficients 
 #   (parameters: b) refer to expected changes in the mean Y-value relative 
-#   to the reference group
+#   to the reference group for an increase of 1 controlling for other vars
 age_smoke_vs_lungcap_model = lm(LungCapData$LungCap ~ 
                                   LungCapData$Age + 
                                   LungCapData$Smoke)
+
+# Adjust the levels such that the reference category is adjusted
+LungCapData$Smoke = relevel(LungCapData$Smoke, ref = "yes")
+
+## Create a new linear model with age and smoking as separate lines
+releveled_age_smoke_vs_lungcap_model = lm(LungCapData$LungCap ~ 
+                                            LungCapData$Age + 
+                                            LungCapData$Smoke)
+plot(LungCapData$Age[LungCapData$Smoke == "no"],
+     LungCapData$LungCap[LungCapData$Smoke == "no"],
+     main = "Age / Smoking vs Lung Capacity",
+     xlab = "Age",
+     ylab = "Lung Capacity",
+     las = 1,
+     col = "blue")
+plot(LungCapData$Age[LungCapData$Smoke == "yes"],
+     LungCapData$LungCap[LungCapData$Smoke == "yes"],
+     main = "Age / Smoking vs Lung Capacity",
+     xlab = "Age",
+     ylab = "Lung Capacity",
+     las = 1,
+     col = "red")
+# If two regression lines were to be plotted for each group, they'd have
+#   the same slope which implies independence with no interaction / 
+#   effect modification
