@@ -3,7 +3,7 @@ x = 1:5
 y = 6:10
 plot(x,y)
 # Importing Data``
-LungCapData = read.delim("D:/Programming/R/Introduction/LungCapData.txt")
+LungCapData = read.delim("D:/Programming_Projects/R-Statistics/Datasets/LungCapData.txt")
 View(LungCapData)
 ls()
 cat("\f")
@@ -126,7 +126,7 @@ hsb2.small <- read.csv("https://stats.idre.ucla.edu/stat/data/hsb2_small.csv")
 hsb3 <- hsb2.small[, c(1, 7, 8)]
 hsb4 <- hsb2.small[, 1:4]
 hsb5 <- hsb2.small[1:10, ]
-hsb6 <- hsb2.small[hsb2.sm9all$ses == 1, ]
+hsb6 <- hsb2.small[hsb2.small$ses == 1, ]
 hsb7 <- hsb2.small[hsb2.small$id %in% c(12, 48, 86, 11, 20, 195), ]
 hsb8 <- hsb2.small[with(hsb2.small, ses == 3 & female == 0), ]
 write.50 <- subset(hsb2.small, write > 50)
